@@ -1,0 +1,24 @@
+import face_recognition #use for face detection and recognition
+import numpy as np #For handling image data as arrays
+import cv2 #for capturing video (like from a webcam) and drawing boxes around faces.
+from PIL import Image   # For loading and displaying images 
+
+# read the file, converts it into pixels values, and load into memory
+face = face_recognition.load_image_file("face.jpg")
+
+# detect the face in the image (give me the coordinates)
+face_coordinates = face_recognition.face_locations(face)
+
+#draw rectangle around the face
+face_bgr = cv2.cvtColor(face, cv2.COLOR_RGB2BGR)
+
+#Draw the rectangle
+for (top, right, bottom, left) in face_coordinates:
+    cv2.rectangle(face_bgr, (left, top), (right, bottom), (0, 255, 0), 3)
+
+#display the image with the rectangle
+cv2.imshow("Face Detection", face_bgr)
+
+# Wait for a key press and then close the window
+cv2.waitKey(0)
+cv2.destroyAllWindows()
