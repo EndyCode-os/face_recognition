@@ -14,7 +14,7 @@ face_bgr = cv2.cvtColor(face, cv2.COLOR_RGB2BGR)
 
 #Draw the rectangle
 for (top, right, bottom, left) in face_coordinates:
-    cv2.rectangle(face_bgr, (left, top), (right, bottom), (0, 255, 0), 3)
+    cv2.rectangle(face_bgr, (left, top), (right, bottom), (0, 0, 255), 3)
 
 #display the image with the rectangle
 cv2.imshow("Face Detection", face_bgr)
